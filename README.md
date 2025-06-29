@@ -1,115 +1,175 @@
 <p align="center">
   <img src="assets/banner.png" alt="WhaleScope banner" width="100%" />
 </p>
-<!-- # 🐋 WhaleScope (`whalescope.py`) -->
 
-## 🐋 Whale Scope
+# 🐋 WHALESCOPE
 
- Is a real-time Ethereum monitoring tool for tracking large on-chain transactions ("whales"). It listens to the mempool using Infura WebSocket and displays any ETH transactions over a specified threshold or large token purchases via decentralized exchanges (DEX).
+**WhaleScope** is a terminal-based Python application that monitors **real-time Ethereum mempool** activity using **Infura WebSocket**. It detects large ETH transactions and token swaps through DEXes such as **Uniswap** and **SushiSwap**, displaying them in a real-time terminal interface.
 
 ---
 
 ## ⚙️ Features
 
-- Monitors Ethereum mempool via WebSocket
-- Displays transactions exceeding **50 ETH**
-- Detects token purchases through Uniswap/SushiSwap
-- Automatically extracts token symbols from contract
-- Terminal-based visual output using `curses`
-- Logs each transaction to a `whale_transactions_log.txt` file
+- 🌐 Live tracking of Ethereum mempool via Infura WebSocket  
+- 🐋 Detects whale-level ETH transfers (≥50 ETH)  
+- 🔄 Monitors token swaps on Uniswap V2/V3 and SushiSwap  
+- 🔍 Automatically extracts token symbols from smart contracts  
+- 🖥️ Real-time terminal UI with `curses`  
+- 📄 Logs transactions to `whale_transactions_log.txt`
 
 ---
 
-## 🛠️ Setup
+## 📁 File Overview
 
-### 1. 🧪 Requirements:
+- `whale_scope.py` – Main Ethereum transaction watcher  
+- `whale_scope.bat` – Windows launcher for convenience  
+- `.env` – Template for `.env` setup   
+- `.vscode/`  
+  - `settings.json` – VS Code settings  
+  - `launch.json` – Debug configuration  
+  - `tasks.json` – Task automation  
+  - `extensions.json` – Suggested extensions  
+- `.github/`  
+  - `FUNDING.yml` – GitHub sponsor setup  
+- `assets/`  
+  - `banner.png` – Banner used in UI and docs  
+- `LICENSE` – Apache 2.0 License  
+- `NOTICE` – Legal notices and third-party attributions  
+- `ETHICS.md` – Responsible use policy  
+- `README.md` – Project documentation (this file)  
+- `requirements.txt` – Dependencies list  
+- `RELEASE_v1.0.0.md` – Initial changelog  
+- `RELEASE_v2.0.0.md` – Latest changes  
+- `whale_transactions_log.txt` – Output of detected transactions  
 
-Install all required packages using `requirements.txt`:
+---
+
+## 🛠️ Dependencies
+
+```
+web3
+websockets
+python-dotenv
+eth-utils
+```
+
+Install via:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Or manually:
-```bash
-pip install web3 websockets python-dotenv
-```
-
-
-Or manually:
-```bash
-pip install web3 websockets
-```
-
-### 2. 🔑 Infura API Key Setup:
-
-Create a `.env` file in the project root directory with the following content:
-```env
-INFURA_PROJECT_ID=your_infura_project_id_here
-```
-
-The application will automatically load this variable using `python-dotenv`.
-
-Edit these lines in the file:
-```python
-INFURA_WSS_URL = "wss://mainnet.infura.io/ws/v3/YOUR_INFURA_PROJECT_ID"
-INFURA_HTTPS_URL = "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID"
-```
-
-### 3. ▶️ Run:
-```bash
-python3 whalescope.py
-```
-
-Transactions will be shown in the terminal and logged to `whale_transactions_log.txt`.
+> Requires Python 3.7 or newer.
 
 ---
 
-## 📄 Output File
+## 🚀 Usage
 
-Each transaction is logged in the following format:
+### ▶️ Option 1 — Run from terminal:
+
+```bash
+python whale_scope.py
+```
+
+### ▶️ Option 2 — Run via `.bat` launcher (Windows):
+
+```cmd
+whale_scope.bat
+```
+
+You will see live transaction output in the terminal and a log file will be created automatically.
+
+---
+
+## 📂 Project Structure
+
 ```text
-[2025-05-18 18:41:27 UTC] From: 0x123... -> To: 0x456... | Value: 78.45 ETH | Type: Swap via UniswapV2 (buying SHIBA) | Hash: 0xabc...
+whale_scope/
+├── assets/
+│   └── banner.png
+├── .github/
+│   └── FUNDING.yml
+├── .vscode/
+│   ├── extensions.json
+│   ├── launch.json
+│   ├── settings.json
+│   └── tasks.json
+├── whale_scope.py
+├── whale_scope.bat
+├── .env
+├── .gitignore
+├── LICENSE
+├── NOTICE
+├── ETHICS.md
+├── README.md
+├── requirements.txt
+├── RELEASE_v1.0.0.md
+├── RELEASE_v2.0.0.md
+└── whale_transactions_log.txt
 ```
 
-File name:
-- `whale_transactions_log.txt`
+---
+
+## ⚠️ DISCLAIMER
+
+This software is provided **strictly for educational and research purposes**.
+
+- The displayed data is not financial advice  
+- Use at your own risk and **verify all transactions independently**  
+- The author **is not responsible** for losses or misuse of this tool
+
+> **Be informed. Stay cautious. Verify everything.**
 
 ---
 
-## 📃 License
+## ⚖️ Ethical Use
 
-MIT License — see [LICENSE](LICENSE)
-
----
-
-## ⚠️ Disclaimer
-
-This tool is for **informational and educational purposes only**.
-
-- Many tokens may be deceptive or malicious
-- Always do your own research
-- The author **accepts no responsibility** for financial loss or misuse
-- **Never share your Infura API key**
+This tool is intended solely for **transparency, monitoring and educational goals**.  
+See [`ETHICS.md`](./ETHICS.md) for the full statement.
 
 ---
 
-## 💸 Donations
+## 📜 License
 
-If you find this tool helpful and would like to support further development:
+Licensed under the [Apache 2.0 License](./LICENSE)
 
-- **Bitcoin (BTC):**  
-  `1MorphXyhHpgmYSfvwUpWojphfLTjrNXc7`
+---
 
-- **Monero (XMR):**  
-  `86VAmEogaZF5WDwR3SKtEC6HSEUh6JPA1gVGcny68XmSJ1pYBbGLmdzEB1ZzGModLBXkG3WbRv12mSKv4KnD8i9w7VTg2uu`
+## 📣 NOTICE
 
-- **Dash (DASH):**  
-  `XtNuNfgaEXFKhtfxAKuDkdysxUqaZm7TDX`
+See [`NOTICE`](./NOTICE) for attribution, license clarifications, and related legal notes.
 
-- **Bytecoin (BCN):**  
-  `bcnZNMyrDrweQgoKH6zpWaE2kW1VZRsX3aDEqnxBVEQfjNnPK6vvNMNRPA4S7YxfhsStzyJeP16woK6G7cRBydZm2TvLFB2eeR`
+---
 
-🙏 Thank you for supporting independent developers and ethical technology.
+## 🍱 Support
 
-> *"I morph bits not to break, but to understand."*  
+★ **Bitcoin (BTC)**  
+`1MorphXyhHpgmYSfvwUpWojphfLTjrNXc7`
+
+★ **Monero (XMR)**  
+`86VAmEogaZF5WDwR3SKtEC6HSEUh6JPA1gVGcny68XmSJ1pYBbGLmdzEB1ZzGModLBXkG3WbRv12mSKv4KnD8i9w7VTg2uu`
+
+★ **Dash (DASH)**  
+`XtNuNfgaEXFKhtfxAKuDkdysxUqaZm7TDX`
+
+**We also value early privacy coins such as:**  
+★ **Bytecoin (BCN)**  
+`bcnZNMyrDrweQgoKH6zpWaE2kW1VZRsX3aDEqnxBVEQfjNnPK6vvNMNRPA4S7YxfhsStzyJeP16woK6G7cRBydZm2TvLFB2eeR`
+
+🙏 *Thank you for supporting ethical research and independent development.*
+
+---
+
+## 👤 Author & Contact
+
+🔗 GitHub: https://github.com/BitMorphX  
+✉️ Email: BitMorphX@proton.me  
+💬 Telegram: https://t.me/BitMorphX
+
+> _“I morph bits, not to break, but to understand.”_  
 > — **BitMorphX**
+
+---
+
+© BitMorphX – All rights reserved.
+```

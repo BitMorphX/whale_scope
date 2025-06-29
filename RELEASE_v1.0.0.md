@@ -1,34 +1,43 @@
-# 🐋 WhaleScope – Release v1.0.0
-
-The first official release of WhaleScope!
-
----
-
-## 🆕 New Features
-
-- 🔍 Ethereum mempool monitoring using Infura WebSocket
-- 🐋 Displays transactions exceeding **50 ETH**
-- 💱 Detects token purchases via UniswapV2, UniswapV3, and SushiSwap
-- 🧠 Automatically resolves token symbols from smart contracts
-- 📺 Terminal display using `curses`
-- 📝 All transactions are logged to `whale_transactions_log.txt`
+# 📎 RELEASE NOTES – WhaleScope  
+**Version:** 1.0.0  
+**Release Date:** 2025-05-20  
 
 ---
 
-## 📄 Files
+## 🚀 Overview
 
-- `whalescope.py` – main program file
-- `requirements.txt` – Python dependencies
-- `README.md` – usage instructions
-- `LICENSE` – MIT license
+This is the **first official release** of **WhaleScope**, a real-time Ethereum transaction tracker built for the terminal.
+
+It listens to the Ethereum mempool via Infura WebSocket and displays transactions that meet whale-level thresholds or involve token swaps on major DEX platforms.
+
+---
+
+## 🔧 Core Features
+
+- 🐋 Detects ETH transactions ≥50 ETH  
+- 🔄 Monitors UniswapV2, UniswapV3, and SushiSwap for token swap activity  
+- 🧠 Resolves token symbols from smart contracts  
+- 📡 Real-time mempool monitoring using Infura WebSocket  
+- 📺 Live terminal interface using `curses`  
+- 📝 Transaction logging to `whale_transactions_log.txt`
+
+---
+
+## ✅ Included in v1.0.0
+
+- ✅ `whale_scope.py` – Main Python script  
+- ✅ `requirements.txt` – Dependencies  
+- ✅ `README.md` – Setup and usage instructions  
+- ✅ `LICENSE` – MIT license  
+- ✅ `whale_transactions_log.txt` – Output file for logged transactions
 
 ---
 
 ## ⚠️ Known Limitations
 
-- Does not work in native Windows `cmd` or `PowerShell` — use WSL or Ubuntu instead
-- Token names may be unavailable if the contract does not implement `symbol()`
-- Requires an active Infura project with WebSocket support
+- ❗ Terminal interface is **not compatible with Windows cmd or PowerShell** — use WSL or Linux  
+- ❗ Token symbols may not resolve if the contract does not implement the `symbol()` method  
+- ❗ Requires valid Infura Project ID with WebSocket access  
 
 ---
 
@@ -36,27 +45,53 @@ The first official release of WhaleScope!
 
 ```bash
 pip install -r requirements.txt
-python3 whalescope.py
+python3 whale_scope.py
 ```
 
 ---
 
-## 🙏 Acknowledgments
-
-Thanks to everyone supporting open-source tools. If you'd like to contribute — check the **Donations** section in the README.
-
-> “If something seems invisible to the chain, it doesn’t mean whales aren’t moving it.”  
-> — **BitMorphX**
----
-
 ## 🔐 API Configuration
 
-This program uses a `.env` file to securely load your Infura WebSocket Project ID.
+WhaleScope uses a `.env` file to securely load your Infura Project ID.
 
-Create a `.env` file with the following content:
+Create a file called `.env` in the project root with the following content:
 
 ```env
 INFURA_PROJECT_ID=your_infura_project_id_here
 ```
 
-The application automatically loads this variable using the `python-dotenv` library.
+This is automatically loaded by the `python-dotenv` library.
+
+---
+
+## 🍱 Support
+
+★ **Bitcoin (BTC)**  
+`1MorphXyhHpgmYSfvwUpWojphfLTjrNXc7`  
+
+★ **Monero (XMR)**  
+`86VAmEogaZF5WDwR3SKtEC6HSEUh6JPA1gVGcny68XmSJ1pYBbGLmdzEB1ZzGModLBXkG3WbRv12mSKv4KnD8i9w7VTg2uu`  
+
+★ **Dash (DASH)**  
+`XtNuNfgaEXFKhtfxAKuDkdysxUqaZm7TDX`  
+
+**We also value early privacy coins such as:**  
+★ **Bytecoin (BCN)**  
+`bcnZNMyrDrweQgoKH6zpWaE2kW1VZRsX3aDEqnxBVEQfjNnPK6vvNMNRPA4S7YxfhsStzyJeP16woK6G7cRBydZm2TvLFB2eeR`  
+
+🙏 *Thank you for supporting ethical research and independent development.*
+
+---
+
+## 👤 Author & Contact
+
+🔗 GitHub: https://github.com/BitMorphX  
+✉️ Email: BitMorphX@proton.me  
+💬 Telegram: https://t.me/BitMorphX  
+
+> _“I morph bits, not to break, but to understand.”_  
+> — **BitMorphX**
+
+---
+
+© BitMorphX – All rights reserved.
